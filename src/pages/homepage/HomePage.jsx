@@ -1,9 +1,13 @@
 import React from 'react';
+import Hero from '../../components/Hero/Hero';
+import Friends from '../../components/Friends/Friends';
 
-const HomePage = () => {
+const HomePage = ({friendsPromise}) => {
+     
     return (
-        <div>
-            <h2>This is homepage</h2>
+        <div className=' '>
+            <Hero/>
+            <Friends friendsPromise={friendsPromise}/>
         </div>
     );
 };
