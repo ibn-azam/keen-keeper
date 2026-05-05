@@ -70,7 +70,7 @@ const Navbar = () => {
         </div>
         <Link to="/" className="">
           <h2>
-            <span className="text-[#1F2937] text-2xl font-bold">Keen</span><span className="text-[#244D3F] text-2xl font-semibold">Keeper</span>
+            <span className="text-[#1F2937] text-3xl font-bold">Keen</span><span className="text-[#244D3F] text-3xl font-semibold">Keeper</span>
           </h2>
         </Link>
       </div>
