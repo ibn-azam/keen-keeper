@@ -17,7 +17,14 @@ export const router = createBrowserRouter([
           <HomePage friendsPromise={friendsPromise}></HomePage>
         </Suspense>},
         {
-          path:'friends/:friendId', Component:FriendDetails
+          path:'friends/:friendId',
+          loader: async ({params}) => {
+  const res = await fetch('/data.json');
+  const friends = await res.json();
+  const friend = friends.find(friend => friend.id === Number(params.friendId));
+  return friend || null;
+},
+          Component:FriendDetails
         },
        {path:"/timeline" , Component: TimeLinePage},
        {path:"/stats", Component: StatsPage},
