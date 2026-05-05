@@ -1,16 +1,67 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🤝 Keen Keeper
 
-Currently, two official plugins are available:
+**Your personal shelf of meaningful connections.**  
+Browse, tend, and nurture the relationships that matter most.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📖 About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Keen Keeper is a relationship management app that helps you stay intentional about the people in your life. Set contact goals, track interactions, and never let an important friendship go cold again.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+### 📅 Smart Contact Reminders
+Set a goal for how often you want to reach out to each person. Keen Keeper tracks days since your last contact and flags relationships as **On Track**, **Almost Due**, or **Overdue** — so you always know who needs your attention.
+
+### ⚡ Quick Check-In Logging
+Log a **Call**, **Text**, or **Video** check-in with a single tap directly from a contact's profile. Each interaction is instantly saved to your personal timeline with a timestamp.
+
+### 📊 Friendship Analytics
+Visualize your interaction habits with a beautiful donut chart that breaks down your check-ins by type. See at a glance whether you're more of a caller, texter, or video chatter.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **React 19** | UI framework |
+| **Vite** | Build tool & dev server |
+| **React Router** | Client-side routing |
+| **Tailwind CSS** | Utility-first styling |
+| **Recharts** | Analytics charts |
+| **React Toastify** | Toast notifications |
+| **React Icons** | Icon library |
+| **React Context + useState** | Global state management |
+
+---
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/          # Icons and images
+├── Context/         # React Context (ContactContext)
+├── pages/
+│   ├── home/        # Home / contacts list
+│   ├── friendDetails/  # Individual contact profile
+│   ├── timeline/    # Interaction history
+│   ├── stats/       # Friendship analytics
+│   └── NotFound/    # 404 page
+├── routes/          # React Router config
+└── main.jsx         # App entry point
+```
+
+---
+
+## 🔗 Links
+
+- **Repository:** [github.com/ibn-azam/keen-keeper](https://github.com/ibn-azam/keen-keeper)
+
+---
