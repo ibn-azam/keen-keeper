@@ -5,7 +5,7 @@ import Friends from '../../components/Friends/Friends';
 const HomePage = ({friendsPromise}) => {
      
     return (
-        <div className=' '>
+        <div className=''>
             <Hero/>
             <Friends friendsPromise={friendsPromise}/>
         </div>

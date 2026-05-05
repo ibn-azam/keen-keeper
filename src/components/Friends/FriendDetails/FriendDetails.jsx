@@ -1,10 +1,23 @@
-import React from 'react';
+
 import { BsArchive } from 'react-icons/bs';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { TbBellZ, TbPhoneCall, TbMessage, TbVideo } from 'react-icons/tb';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
+import { useContact } from '../../../Context/ContactContext';
+
+
 
 const FriendDetails = () => {
+
+    // inside your component:
+const { logContact } = useContact();
+const navigate = useNavigate();
+
+const handleCheckIn = (type) => {
+    logContact({ contactName: name, contactPicture: picture, type });
+    navigate("/timeline");
+};
+
     const { name, picture, email, days_since_contact, status, tags, bio, goal, next_due_date } = useLoaderData();
 
     return (
@@ -39,19 +52,19 @@ const FriendDetails = () => {
             </div>
 
             {/* Snooze */}
-            <button className="bg-white border border-gray-200 rounded-xl p-2 flex justify-center items-center gap-3 text-gray-800 font-medium hover:bg-gray-50 transition-all">
+            <button className="bg-white border border-gray-200 rounded-xl p-2 flex justify-center items-center gap-3 text-gray-800 font-medium hover:bg-gray-50 transition-all cursor-pointer">
                 <TbBellZ className="text-xl shrink-0" />
                 <span>Snooze 2 Weeks</span>
             </button>
 
             {/* Archive */}
-            <button className="bg-white border border-gray-200 rounded-xl p-2 flex justify-center items-center gap-3 text-gray-800 font-medium hover:bg-gray-50 transition-all">
+            <button className="bg-white border border-gray-200 rounded-xl p-2 flex justify-center items-center gap-3 text-gray-800 font-medium hover:bg-gray-50 transition-all cursor-pointer">
                 <BsArchive className="text-xl shrink-0" />
                 <span>Archive</span>
             </button>
 
             {/* Delete */}
-            <button className="bg-white border border-gray-200 rounded-xl p-2 flex justify-center items-center gap-3 text-red-500 font-medium hover:bg-red-50 transition-all">
+            <button className="bg-white border border-gray-200 rounded-xl p-2 flex justify-center items-center gap-3 text-red-500 font-medium hover:bg-red-50 transition-all cursor-pointer">
                 <RiDeleteBinLine className="text-xl shrink-0" />
                 <span>Delete</span>
             </button>
@@ -101,7 +114,8 @@ const FriendDetails = () => {
                         { label: 'Text',  Icon: TbMessage   },
                         { label: 'Video', Icon: TbVideo     },
                     ].map(({ label, Icon }) => (
-                        <button key={label} className="flex flex-col items-center justify-center gap-2 border border-gray-200 rounded-xl py-6 hover:bg-gray-50 transition-all">
+                        <button onClick={() => handleCheckIn(label)}
+                         key={label} className="flex flex-col items-center justify-center gap-2 border border-gray-200 rounded-xl py-6 hover:bg-gray-50 transition-all">
                             <Icon className="text-2xl text-gray-700" />
                             <span className="text-sm text-gray-700">{label}</span>
                         </button>
