@@ -1,4 +1,3 @@
-
 import { GoHome } from "react-icons/go";
 import { MdQueryStats } from "react-icons/md";
 import { RiTimeLine } from "react-icons/ri";
@@ -14,7 +13,10 @@ const Navbar = () => {
           }
           to="/"
         >
-          <span><GoHome /></span>Home
+          <span>
+            <GoHome />
+          </span>
+          Home
         </NavLink>
       </li>
       <li>
@@ -24,8 +26,10 @@ const Navbar = () => {
           }
           to="/timeline"
         >
-          <span><RiTimeLine />
-</span>Timeline
+          <span>
+            <RiTimeLine />
+          </span>
+          Timeline
         </NavLink>
       </li>
       <li>
@@ -35,7 +39,10 @@ const Navbar = () => {
           }
           to="/stats"
         >
-          <span><MdQueryStats /></span>Stats
+          <span>
+            <MdQueryStats />
+          </span>
+          Stats
         </NavLink>
       </li>
     </>
@@ -70,7 +77,10 @@ const Navbar = () => {
         </div>
         <Link to="/" className="">
           <h2>
-            <span className="text-[#1F2937] text-3xl font-bold">Keen</span><span className="text-[#244D3F] text-3xl font-semibold">Keeper</span>
+            <span className="text-[#1F2937] text-3xl font-bold">Keen</span>
+            <span className="text-[#244D3F] text-3xl font-semibold">
+              Keeper
+            </span>
           </h2>
         </Link>
       </div>
