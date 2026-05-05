@@ -4,18 +4,20 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import { TbBellZ, TbPhoneCall, TbMessage, TbVideo } from 'react-icons/tb';
 import { useLoaderData, useNavigate } from 'react-router';
 import { useContact } from '../../../Context/ContactContext';
+import { toast } from 'react-toastify';
 
 
 
 const FriendDetails = () => {
 
-    // inside your component:
+
 const { logContact } = useContact();
 const navigate = useNavigate();
 
 const handleCheckIn = (type) => {
     logContact({ contactName: name, contactPicture: picture, type });
     navigate("/timeline");
+    toast.success(`${name} ${type} To You`)
 };
 
     const { name, picture, email, days_since_contact, status, tags, bio, goal, next_due_date } = useLoaderData();
@@ -110,11 +112,11 @@ const handleCheckIn = (type) => {
                 <h4 className="text-base font-bold text-gray-900">Quick Check-In</h4>
                 <div className="grid grid-cols-3 gap-3">
                     {[
-                        { label: 'Call',  Icon: TbPhoneCall },
-                        { label: 'Text',  Icon: TbMessage   },
-                        { label: 'Video', Icon: TbVideo     },
+                        { label: 'Call',  Icon: TbPhoneCall},
+                        { label: 'Text',  Icon: TbMessage},
+                        { label: 'Video', Icon: TbVideo},
                     ].map(({ label, Icon }) => (
-                        <button onClick={() => handleCheckIn(label)}
+                        <button onClick={() => handleCheckIn(label,)}
                          key={label} className="flex flex-col items-center justify-center gap-2 border border-gray-200 rounded-xl py-6 hover:bg-gray-50 transition-all">
                             <Icon className="text-2xl text-gray-700" />
                             <span className="text-sm text-gray-700">{label}</span>
