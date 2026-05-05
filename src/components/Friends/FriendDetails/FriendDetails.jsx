@@ -5,22 +5,35 @@ import { TbBellZ, TbPhoneCall, TbMessage, TbVideo } from 'react-icons/tb';
 import { useLoaderData, useNavigate } from 'react-router';
 import { useContact } from '../../../Context/ContactContext';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
+
 
 
 
 const FriendDetails = () => {
 
 
+
+
 const { logContact } = useContact();
 const navigate = useNavigate();
+
+
 
 const handleCheckIn = (type) => {
     logContact({ contactName: name, contactPicture: picture, type });
     navigate("/timeline");
-    toast.success(`${name} ${type} To You`)
+    toast.success(`${name} ${type} To You`);
+    
 };
 
+
+
+
     const { name, picture, email, days_since_contact, status, tags, bio, goal, next_due_date } = useLoaderData();
+
+    
+useEffect(() => { document.title = `${name} | KeenKeeper`; }, [name]);
 
     return (
         <div className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-10">

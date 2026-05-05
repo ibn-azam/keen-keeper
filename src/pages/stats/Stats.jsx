@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 import { useContact } from '../../Context/ContactContext';
+import { useEffect } from 'react';
 
 const COLORS = {
     Text:  "#7C3AED",
@@ -17,6 +18,8 @@ export default function StatsPage() {
     }, {});
 
     const data = Object.entries(counts).map(([name, value]) => ({ name, value }));
+
+    useEffect(() => { document.title = 'Stats | KeenKeeper'; }, []);
 
     return (
         <div className="min-h-screen bg-[#F8FAFC] p-4 sm:p-6 md:p-10">

@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useContact } from '../../Context/ContactContext';
 import TbPhoneCall from '../../assets/call.png'
 import TbMessage from '../../assets/text.png'
 import TbVideo from '../../assets/video.png'
 import { IoIosArrowDown } from 'react-icons/io';
+
+
 
 const typeConfig = {
     Call:  { icon: TbPhoneCall},
@@ -18,6 +20,7 @@ function formatDate(iso) {
     });
 }
 
+
 export default function TimelinePage() {
     const { timeline } = useContact();
     const [filter, setFilter] = useState("");
@@ -26,6 +29,8 @@ export default function TimelinePage() {
     const filteredTimeline = filter
   ? timeline.filter(item => item.type === filter)
   : timeline;
+
+  useEffect(() => { document.title = 'Timeline | KeenKeeper'; }, []);
 
     return (
         <div className="min-h-screen p-4 sm:p-6 md:p-10">

@@ -3,7 +3,7 @@ import Root from '../components/Root/Root'
 import HomePage from '../pages/homepage/HomePage'
 import TimeLinePage from '../pages/timeline/TimeLine'
 import StatsPage from '../pages/stats/Stats'
-import { Suspense } from 'react'
+
 import FriendDetails from '../components/Friends/FriendDetails/FriendDetails'
 import NotFound from '../components/ErrorElement/errorElement'
 
@@ -13,10 +13,10 @@ const friendsPromise = fetch('/data.json').then(res => res.json());
 export const router = createBrowserRouter([
   {path:'/', Component: Root,
     children:[
-       {index:true ,
-        element:<Suspense fallback={<span>Loading....</span>}>
-          <HomePage friendsPromise={friendsPromise}></HomePage>
-        </Suspense>},
+       {
+  index: true,
+  element: <HomePage friendsPromise={friendsPromise} />
+},
         {
           path:'friends/:friendId',
           loader: async ({params}) => {

@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 export default function NotFound() {
     const navigate = useNavigate();
+
+    useEffect(() => { document.title = 'Page Not Found | KeenKeeper'; }, []);
 
     return (
         <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center p-6 text-center">
